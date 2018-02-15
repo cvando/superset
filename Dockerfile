@@ -5,7 +5,6 @@ ENV LANG=C.UTF-8 \
     PYTHONPATH=/etc/superset:/home/superset:$PYTHONPATH \
     SUPERSET_HOME=/var/lib/superset
 
-
 # Create superset user & install dependencies
 RUN useradd -U -m superset && \
     mkdir /etc/superset  && \
