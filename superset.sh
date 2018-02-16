@@ -8,6 +8,7 @@ admin
 admin@admin.fr
 admin
 admin
+EOF
 
 fabmanager create-admin --app superset < /var/lib/superset/admin.config
 
