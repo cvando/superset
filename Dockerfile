@@ -25,6 +25,7 @@ RUN useradd -U -m superset && \
     pip install \
          psycopg2-binary \
          superset \
+         redis-py \
          psycopg2
 
 WORKDIR /home/superset
