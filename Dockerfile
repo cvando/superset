@@ -24,13 +24,14 @@ RUN useradd -U -m superset && \
     pip install \
          psycopg2-binary \
          superset \
-         redis \
-         psycopg2-binary
+         redis
 
 WORKDIR /home/superset
 
+COPY superset.sh /superset.sh
+RUN chmod +x /superset.sh
+
 EXPOSE 8088
-ENTRYPOINT ["superset"]
-CMD ["runserver"]
+ENTRYPOINT ["/superset.sh"]
 
 USER superset
