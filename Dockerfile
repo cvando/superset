@@ -25,7 +25,7 @@ RUN useradd -U -m superset && \
          psycopg2-binary \
          superset \
          redis \
-         psycopg2
+         psycopg2-binary
 
 WORKDIR /home/superset
 
