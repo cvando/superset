@@ -1,5 +1,16 @@
 #!/bin/bash
 
+echo "Creating admin user"
+cat > /var/lib/superset/admin.config <<EOF
+admin
+admin
+admin
+admin@admin.fr
+admin
+admin
+
+fabmanager create-admin --app superset < /var/lib/superset/admin.config
+
 # set up Superset
 echo "Running first time setup for Superset"
 
