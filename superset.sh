@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # set up Superset
 echo "Running first time setup for Superset"
 
