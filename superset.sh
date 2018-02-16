@@ -1,9 +1,9 @@
 # set up Superset
-if [ ! -f $SUPERSET_HOME/.setup-complete ]; then
+if [ ! -f /var/lib/superset/.setup-complete ]; then
   echo "Running first time setup for Superset"
 
-  echo "Creating admin user ${ADMIN_USERNAME}"
-  cat > $SUPERSET_HOME/admin.config <<EOF
+  echo "Creating admin user"
+  cat > /var/lib/superset/admin.config <<EOF
 admin
 admin
 admin
@@ -12,9 +12,9 @@ admin
 admin
 EOF
 
-  /bin/sh -c '/usr/local/bin/fabmanager create-admin --app superset < $SUPERSET_HOME/admin.config'
+  /bin/sh -c '/usr/local/bin/fabmanager create-admin --app superset < /var/lib/superset/admin.config'
 
-  rm $SUPERSET_HOME/admin.config
+  rm /var/lib/superset/admin.config
 
   echo "Initializing database"
   superset db upgrade
@@ -22,7 +22,7 @@ EOF
   echo "Creating default roles and permissions"
   superset init
 
-  touch $SUPERSET_HOME/.setup-complete
+  touch /var/lib/superset/.setup-complete
 else
   # always upgrade the database, running any pending migrations
   superset db upgrade
